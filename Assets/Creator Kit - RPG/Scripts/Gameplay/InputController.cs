@@ -39,10 +39,16 @@ namespace RPGM.UI
         void DialogControl()
         {
             model.player.nextMoveCommand = Vector3.zero;
+
             if (Input.GetKeyDown(KeyCode.LeftArrow))
                 model.dialog.FocusButton(-1);
             else if (Input.GetKeyDown(KeyCode.RightArrow))
                 model.dialog.FocusButton(+1);
+            else if (Input.GetKeyDown(KeyCode.A))
+                model.dialog.FocusButton(-1);
+            else if (Input.GetKeyDown(KeyCode.D))
+                model.dialog.FocusButton(+1);
+
             if (Input.GetKeyDown(KeyCode.Space))
                 model.dialog.SelectActiveButton();
         }
@@ -56,6 +62,14 @@ namespace RPGM.UI
             else if (Input.GetKey(KeyCode.LeftArrow))
                 model.player.nextMoveCommand = Vector3.left * stepSize;
             else if (Input.GetKey(KeyCode.RightArrow))
+                model.player.nextMoveCommand = Vector3.right * stepSize;
+            else if(Input.GetKey(KeyCode.W))
+                model.player.nextMoveCommand = Vector3.up * stepSize;
+            else if (Input.GetKey(KeyCode.S))
+                model.player.nextMoveCommand = Vector3.down * stepSize;
+            else if (Input.GetKey(KeyCode.A))
+                model.player.nextMoveCommand = Vector3.left * stepSize;
+            else if (Input.GetKey(KeyCode.D))
                 model.player.nextMoveCommand = Vector3.right * stepSize;
             else
                 model.player.nextMoveCommand = Vector3.zero;
